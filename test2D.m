@@ -1,19 +1,23 @@
-% clear
+clear
 close all
 clc
 
-fld_images = 'Imageset_Completo/';
+temp = load('In\KLT_image.mat'); K = temp.K;
+temp = load('In\SOT_image.mat'); E = temp.E;
+N = length(K);
+
+fld_images = 'Set image testing/';
 imagebase = dir(fullfile(fld_images, '*.tiff'));
 
 dwtmode('per')
 wavelet_name = 'db4';
 perc = 0.01:0.01:0.15;
 
-
 psnr_dmt = zeros(length(imagebase),length(perc));
-psnr_odmt = zeros(length(imagebase),length(perc));
 psnr_dct = zeros(length(imagebase),length(perc));
 psnr_dwt = zeros(length(imagebase),length(perc));
+psnr_klt = zeros(length(imagebase),length(perc));
+psnr_sot = zeros(length(imagebase),length(perc));
 for ii = 1:length(imagebase)
     
     str = imagebase(ii).name;
@@ -59,17 +63,56 @@ for ii = 1:length(imagebase)
         psnr_dwt(ii,k) = 20*log10(255/sqrt(my_mse));
     end
 
+    %%%%% KLT and SOT %%%%%
+    fun = @(block_struct) T(block_struct.data, K');
+    X_klt = blockproc(x, [N, N], fun);
+    fun = @(block_struct) T(block_struct.data, E');
+    X_sot = blockproc(x, [N, N], fun);
+    for k = 1:length(perc)
+        X_klt_nonlinapp = nonLinApp(X_klt, round(perc(k)*numel(x)));
+        X_sot_nonlinapp = nonLinApp(X_sot, round(perc(k)*numel(x)));
+%         fun = @(block_struct) nonLinApp(block_struct.data, round(perc(k)*N^2));
+%         X_klt_nonlinapp = blockproc(X_klt, [N, N], fun);
+%         X_sot_nonlinapp = blockproc(X_sot, [N, N], fun);
+
+        fun = @(block_struct) inv_T(block_struct.data,K);
+        x_klt_rec =  blockproc(X_klt_nonlinapp, [N, N], fun);
+        my_mse = sum((x(:)-x_klt_rec(:)).^2)/numel(x);
+        psnr_klt(ii,k) = 20*log10(255/sqrt(my_mse));
+
+        fun = @(block_struct) inv_T(block_struct.data,E);
+        x_sot_rec =  blockproc(X_sot_nonlinapp, [N, N], fun);
+        my_mse = sum((x(:)-x_sot_rec(:)).^2)/numel(x);
+        psnr_sot(ii,k) = 20*log10(255/sqrt(my_mse));
+    end
+
 end
 
 %%%%% Plot %%%%%
-plot(perc*100, mean(psnr_dwt), 'r', perc*100, mean(psnr_dct), 'k', perc*100, mean(psnr_dmt), 'b', perc*100, mean(psnr_odmt), 'b--')
+plot(perc*100, mean(psnr_dwt), 'r','LineWidth',1.2)
+hold on
+plot(perc*100, mean(psnr_dct), 'k','LineWidth',1.2)
+plot(perc*100, mean(psnr_klt), 'm','LineWidth',1.2)
+plot(perc*100, mean(psnr_sot),'LineWidth',1.2,'Color',[0.4660 0.6740 0.1880])
+plot(perc*100, mean(psnr_dmt), 'b','LineWidth',1.2)
 grid on
-legend('DWT', 'DCT','DMT','ODMT')
+legend('DWT', 'DCT','KLT','SOT','DMT','Location','southeast')
 xlabel('% non-zero coefficients'), ylabel('PSNR')
+xlim([5, 15])
 
 %%%%%%%%%%%%%%%%%%%%%%%%% FUNCTIONS %%%%%%%%%%%%%%%%%%%%%%%%%
+function y = T(x, M)
+    N = size(x,1);
+    y = reshape(M*x(:), [N, N]); 
+end
+
 function y = nonLinApp(x, k)
 [~, ind] = sort(abs(x(:)), 'descend');
 y = zeros(size(x));
 y(ind(1:k)) = x(ind(1:k));
+end
+
+function y = inv_T(x, M)
+    N = 8;
+    y = reshape(M*x(:), [N, N]);
 end
