@@ -2,7 +2,7 @@ clear
 close all
 clc
 
-fld_seismic = 'Set sisma training/';
+fld_seismic = 'Set seism training/';
 seismicbase = dir(fullfile(fld_seismic, '*.sac'));
 
 % 400-sample windows

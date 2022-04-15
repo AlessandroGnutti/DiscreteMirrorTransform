@@ -8,7 +8,7 @@ sot_basis = load("IN/SOT_seismic.mat");
 dwtmode('per')
 wavelet_name = 'db4';
 
-fld_seismic = 'Set sisma testing/';
+fld_seismic = 'Set seism testing/';
 seismicbase = dir(fullfile(fld_seismic, '*.sac'));
 
 % perc = 0.005:0.005:0.1;
