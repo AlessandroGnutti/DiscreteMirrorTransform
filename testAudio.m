@@ -2,37 +2,36 @@ clear
 close all
 clc
 
-klt_basis = load("In/KLT_seismic.mat");
-sot_basis = load("In/SOT_seismic.mat");
+klt_basis = load('In/KLT_audio.mat');
+sot_basis = load('In/SOT_audio.mat');
 length_windows = length(klt_basis.K);
 
 dwtmode('per')
-wavelet_name = 'db4';
+wavelet_name = 'db20';
 
-fld_seismic = 'Set seism testing/';
-seismicbase = dir(fullfile(fld_seismic, '*.sac'));
-
+fld_audio = 'Set audio testing/';
+audiobase = dir(fullfile(fld_audio, '*.wav'));
 
 perc = 0.01:0.01:0.15;
-mse_dmt = zeros(length(seismicbase),length(perc));
-mse_dct = zeros(length(seismicbase),length(perc));
-mse_dwt = zeros(length(seismicbase),length(perc));
-mse_klt = zeros(length(seismicbase),length(perc));
-mse_sot = zeros(length(seismicbase),length(perc));
-for ii = 1:length(seismicbase)
+mse_dmt = zeros(length(audiobase),length(perc));
+mse_dct = zeros(length(audiobase),length(perc));    
+mse_dwt = zeros(length(audiobase),length(perc));
+mse_klt = zeros(length(audiobase),length(perc));    
+mse_sot = zeros(length(audiobase),length(perc));
+for ii = 1:length(audiobase)
     
-    str = seismicbase(ii).name;
+    str = audiobase(ii).name;
     disp(str)
-    x = rdsac(strcat(fld_seismic,str));
-    x = x.d;
-
-    M = floor(length(x)/400);
-    x = x(1:M*400);
-
-    x = x-min(x);
+    [y, Fs] = audioread(strcat(fld_audio,str));
+    x = mean(y,2);
+    max_length = min(length(x),Fs*7); % Max 7 seconds
+    x = x(1:max_length);
+    M = floor(length(x)/length_windows);
+    x = x(1:M*length_windows);
+    x = x - min(x);
     x = x/max(x);
- 
-    %%%%% DMT %%%%%
+     
+    %%%% DMT %%%%%
     fprintf('Mirror Transform loading...\n')
     [X_dmt, n0_table, flag_table] = mirrorTransform2D_fast(x,'dmt');
     fprintf('Mirror Transform computed.\n')
@@ -40,7 +39,7 @@ for ii = 1:length(seismicbase)
     for k = 1:length(perc)
         K = round(perc(k)*numel(x));
         X_nonlinapp = nonLinApp(X_dmt, K);
-%         x_dmt_rec = inverseMirrorTransform2D(X_nonlinapp, n0_table, flag_table);
+        %x_dmt_rec = inverseMirrorTransform2D(X_nonlinapp, n0_table, flag_table);
         mse_dmt(ii,k) = sum((X_dmt-X_nonlinapp).^2)/numel(x);
     end
     
@@ -65,11 +64,11 @@ for ii = 1:length(seismicbase)
 
     %%%%% KLT and SOT %%%%%
     for k = 1:length(perc)
-        K = round(perc(k)*400);
+        K = round(perc(k)*length_windows);
         mse_total_klt = 0;
         mse_total_sot = 0;
         for ww = 1:M
-            x_w = x((ww-1)*400+1:ww*400);
+            x_w = x((ww-1)*length_windows+1:ww*length_windows);
 
             X_w = klt_basis.K'*x_w;
             X_nonlinapp = nonLinApp(X_w, K);
@@ -98,7 +97,7 @@ plot(perc*100, mean(mse_dmt), 'b','LineWidth',1.2)
 grid on
 legend('DWT', 'DCT','KLT','SOT','DMT','Location','northeast')
 xlabel('% non-zero coefficients'), ylabel('MSE')
-xlim([3, 15])
+xlim([1 15]), ylim([0 4]*1e-3)
 
 %%%%%%%%%%%%%%%%%%%%%%%%% FUNCTIONS %%%%%%%%%%%%%%%%%%%%%%%%%
 function y = nonLinApp(x, k)
