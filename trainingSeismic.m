@@ -41,5 +41,5 @@ end
 
 C = cov(X);
 [K,D] = eig(C);
-save('In/Training seismic sequences.mat','X')
-save('In/KLT_seismic.mat','K')
+% save('In/Training seismic sequences.mat','X')
+% save('In/KLT_seismic.mat','K')
