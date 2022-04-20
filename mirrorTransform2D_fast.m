@@ -1,5 +1,9 @@
 function [X, n0_table, flag_table] = mirrorTransform2D_fast(x,mode)
 
+if nargin==1
+    mode = 'dmt';
+end
+
 albero = {x};
 albero_next_lev = {};
 n0_table = {[]};
