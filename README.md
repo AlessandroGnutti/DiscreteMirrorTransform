@@ -20,4 +20,4 @@ To compute the KLT basis for each dataset, you can run the following 4 scripts:
 - *trainingSeismic.m*
 - *trainingECG.m*
 
-Instead, to compute the SOT basis, you can run the code in the folder **SOT**. However, you can find the KLT and SOT matrices already computed in the folder **In**.
+Instead, to compute the SOT basis, you can run the code in the folder **SOT** (Copyright Osman G. Sezer and Onur G. Guleryuz 2015). However, you can find the KLT and SOT matrices already computed in the folder **In**.
