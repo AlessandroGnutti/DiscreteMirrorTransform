@@ -12,3 +12,12 @@ There are 4 main scripts:
 - *testECG.m*
 
 Each of them launches the experimental comparison between the Discrete Mirror Transform (DMT), Discrete Cosine Transform (DCT), Discrete Wavelet Transform (DWT), Karhunen-Loeve Transform (KLT) and Sparse Orthonormal Transform (SOT) performed on image, audio, seismic and ECG datasets.
+
+To compute the KLT basis for each dataset, you can run the following 4 scripts:
+
+- *trainingImages.m*
+- *trainingAudio.m*
+- *trainingSeismic.m*
+- *trainingECG.m*
+
+Instead, to compute the SOT basis, you can run the code in the folder **SOT**. 
