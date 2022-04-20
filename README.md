@@ -13,7 +13,7 @@ There are 4 main scripts:
 - *testSeismic.m*
 - *testECG.m*
 
-Each of them launches the experimental comparison between the Discrete Mirror Transform (DMT), Discrete Cosine Transform (DCT), Discrete Wavelet Transform (DWT), Karhunen-Loeve Transform (KLT) and Sparse Orthonormal Transform (SOT) performed on image, audio, seismic and ECG datasets.
+Each of them launches the experimental comparison between the Discrete Mirror Transform (DMT), the Discrete Cosine Transform (DCT), the Discrete Wavelet Transform (DWT), the Karhunen-Loeve Transform (KLT) and the Sparse Orthonormal Transform (SOT), performed on image, audio, seismic and ECG datasets, respectively.
 
 To compute the KLT basis for each dataset, you can run the following 4 scripts:
 
@@ -26,4 +26,4 @@ Instead, to compute the SOT basis, you can run the code in the folder **SOT** (C
 
 ### Important functions
 
-To generate the DMT of a generic 1-D or 2-D sequence you can call the function *mirrorTransform2D_slow*, which receives the sequence as input and returns the entire tree structure. Alternately, you can call the faster implementation *mirrorTransform2D_fast* which concatenates the tail to one of the even or odd nodes. It receives the sequence as input and returns the transform coefficients and the optimal symmetry locations (without tree structure).
+To generate the DMT of a generic 1-D or 2-D sequence you can call the function *mirrorTransform2D_slow*, which receives the sequence as input and returns the entire tree structure as output. Alternately, you can call the faster implementation *mirrorTransform2D_fast* which concatenates the tail to one of the even or odd nodes. It receives the sequence as input and returns the transform coefficients and the optimal symmetry locations (without tree structure) as output.
