@@ -20,10 +20,6 @@ The following figures show the sparsity ability of the Mirror Transform, display
 - ECG dataset:
 <img src="https://raw.githubusercontent.com/AlessandroGnutti/DiscreteMirrorTransform/master/Results/db_ecg.jpg" width="400">
 
-In addition,
-
-
-
 ## About the code
 
 ### Scripts
