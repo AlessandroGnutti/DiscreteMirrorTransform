@@ -4,7 +4,25 @@ The Mirror Transform describes any finite-energy signal through a unique represe
 
 ## Results
 
-![](https://raw.githubusercontent.com/AlessandroGnutti/DiscreteMirrorTransform/master/Results/Immagine.png)
+### Sparsity properties
+
+The following figures show the sparsity ability of the Mirror Transform, displaying the PSNR/MSE curves in relation to the percentage of the transform coefficients retained for reconstruction, for each dataset.
+
+- Image dataset:
+<img src="https://raw.githubusercontent.com/AlessandroGnutti/DiscreteMirrorTransform/master/Results/db_image.jpg" width="400">
+
+- Audio dataset:
+<img src="https://raw.githubusercontent.com/AlessandroGnutti/DiscreteMirrorTransform/master/Results/db_audio.jpg" width="400">
+
+- Seismic dataset:
+<img src="https://raw.githubusercontent.com/AlessandroGnutti/DiscreteMirrorTransform/master/Results/db_seismic.jpg" width="400">
+
+- ECG dataset:
+<img src="https://raw.githubusercontent.com/AlessandroGnutti/DiscreteMirrorTransform/master/Results/db_ecg.jpg" width="400">
+
+In addition,
+
+
 
 ## About the code
 
