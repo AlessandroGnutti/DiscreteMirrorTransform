@@ -4,7 +4,7 @@ The Mirror Transform describes any finite-energy signal through a unique represe
 
 ## Results
 
-![Prova](https://raw.githubusercontent.com/AlessandroGnutti/DiscreteMirrorTransform/tree/main/Results/Immagine.png)
+![](https://raw.githubusercontent.com/AlessandroGnutti/DiscreteMirrorTransform/master/Results/Immagine.png)
 
 ## About the code
 
