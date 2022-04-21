@@ -48,7 +48,7 @@ Instead, to compute the SOT basis, you can run the code in the folder **SOT** (C
 
 ### Important functions
 
-To generate the DMT of a generic 1-D or 2-D sequence you can call the function *mirrorTransform2D_slow*, which receives the sequence as input and returns the entire tree structure as output. Alternately, you can call the faster implementation *mirrorTransform2D_fast* which concatenates the tail to one of the even or odd nodes. It receives the sequence as input and returns the transform coefficients and the optimal symmetry locations (without tree structure) as output.
+To generate the DMT of a generic 1-D or 2-D sequence you can call the function *mirrorTransform2D_slow*, which receives the sequence as input and returns the entire tree structure as output. Alternately, you can call the faster implementation *mirrorTransform2D_fast* which concatenates the tail to one of the even or odd nodes. It receives the sequence as input and returns the transform coefficients and the optimal symmetry positions (without tree structure) as output.
 
 ## Contacts
 
