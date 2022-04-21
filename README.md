@@ -4,6 +4,8 @@ The Mirror Transform describes any finite-energy signal through a unique represe
 
 ## Results
 
+![](/assets/Out/db_image_revised.pdf)
+
 ## About the code
 
 ### Scripts
