@@ -57,10 +57,10 @@ Instead, to compute the SOT basis, you can run the code in the folder **SOT** (C
 
 ### One-wayness experiments
 
-There are 3 main scripts:
+To reproduce the figures in **Results - One-wayness property**, you can run the three scripts in the folder **One-wayness**:
 
-- ```main_cripto.m``` and ```analysis_cripto.m``` which generate the first two figures in **Results - One-wayness property**. In particular, ```main_cripto.m``` creates (and saves) the file ```Data2.mat``` which is then used in ```analysis_cripto.m``` to plot the figures.
-- ```main_change_leaves.m``` which generates the third figure in **Results - One-wayness property**.
+- ```main_cripto.m``` and ```analysis_cripto.m``` which generate the first two figures. In particular, ```main_cripto.m``` creates (and saves) the file ```Data2.mat```,  which is then used in ```analysis_cripto.m``` to plot the figures.
+- ```main_change_leaves.m``` which generates the third figure.
 
 
 
