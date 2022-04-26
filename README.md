@@ -63,9 +63,9 @@ Instead, to compute the SOT basis, you can run the code in the folder [**SOT**](
 
 ### One-wayness experiments
 
-To reproduce the figures in **Results - One-wayness property**, you can run the three scripts in the folder [**One-wayness**](https://github.com/AlessandroGnutti/DiscreteMirrorTransform/tree/main/One-wayness):
+To reproduce the figures in **Results - One-wayness property**, you can run the three scripts in the folder [**One-wayness**](https://github.com/AlessandroGnutti/DiscreteMirrorTransform/tree/main/One-wayness), namely:
 
-- ```main_cripto.m``` and ```analysis_cripto.m``` which generate the first two figures. In particular, ```main_cripto.m``` creates (and saves) the file ```Data2.mat```,  which is then used in ```analysis_cripto.m``` to plot the figures.
+- ```main_cripto.m``` and ```analysis_cripto.m```, which generate the first two figures. In particular, ```main_cripto.m``` creates (and saves) the file ```Data2.mat```,  which is then used in ```analysis_cripto.m``` to plot the figures. You can also run directly ```analysis_cripto.m```, since the matrix ```Data2.mat``` is already loeaded.
 - ```main_change_leaves.m``` which generates the third figure.
 
 ### Important functions
