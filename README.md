@@ -59,16 +59,14 @@ To compute the KLT basis for each dataset, you can run the following 4 scripts:
 - ```trainingSeismic.m```
 - ```trainingECG.m```
 
-Instead, to compute the SOT basis, you can run the code in the folder **SOT** (Copyright Osman G. Sezer and Onur G. Guleryuz 2015). However, you can find the KLT and SOT matrices already computed in the folder **In**.
+Instead, to compute the SOT basis, you can run the code in the folder [**SOT**](https://github.com/AlessandroGnutti/DiscreteMirrorTransform/tree/main/SOT) (Copyright Osman G. Sezer and Onur G. Guleryuz 2015). However, you can find the KLT and SOT matrices already computed in the folder [**In**](https://github.com/AlessandroGnutti/DiscreteMirrorTransform/tree/main/In).
 
 ### One-wayness experiments
 
-To reproduce the figures in **Results - One-wayness property**, you can run the three scripts in the folder **One-wayness**:
+To reproduce the figures in **Results - One-wayness property**, you can run the three scripts in the folder [**One-wayness**](https://github.com/AlessandroGnutti/DiscreteMirrorTransform/tree/main/One-wayness):
 
 - ```main_cripto.m``` and ```analysis_cripto.m``` which generate the first two figures. In particular, ```main_cripto.m``` creates (and saves) the file ```Data2.mat```,  which is then used in ```analysis_cripto.m``` to plot the figures.
 - ```main_change_leaves.m``` which generates the third figure.
-
-
 
 ### Important functions
 
