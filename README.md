@@ -6,7 +6,7 @@ The Mirror Transform describes any finite-energy signal through a unique represe
 
 ## Algorithm
 
-You can find the pseudo-code algorithm in the folder **1-D algorithm**.
+You can find the pseudo-code algorithm in the folder [**1-D algorithm**](https://github.com/AlessandroGnutti/DiscreteMirrorTransform/tree/main/1-D%20algorithm).
 
 ## Results
 
