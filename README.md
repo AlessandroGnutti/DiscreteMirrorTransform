@@ -73,7 +73,7 @@ To reproduce the figures in **Results - One-wayness property**, you can run the 
 To generate the DMT of a generic 1-D or 2-D sequence you can call the functions:
 
 - ```mirrorTransform2D_slow.m```, which receives the sequence as input and returns the entire tree structure as output;
-- or, alternately, ```mirrorTransform2D_fast.m```, which concatenates the tail to one of the even or odd nodes. It receives the sequence as input and returns the transform coefficients and the optimal symmetry positions (without tree structure) as output. ```mirrorTransform2D_fast.m``` computes the inverse trasnform.
+- or, alternately, ```mirrorTransform2D_fast.m```, which concatenates the tail to one of the even or odd nodes. It receives the sequence as input and returns the transform coefficients and the optimal symmetry positions (without tree structure) as output. ```inverseMirrorTransform2D_fast.m``` computes the inverse transformation.
 
 ## Contacts
 
