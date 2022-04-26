@@ -20,6 +20,19 @@ The following figures show the sparsity ability of the Mirror Transform, display
 - ECG dataset:
 <img src="https://raw.githubusercontent.com/AlessandroGnutti/DiscreteMirrorTransform/master/Results/db_ecg.jpg" width="400">
 
+### One-wayness property
+
+The following figures show the one-wayness property of the Mirror Transform (experiments performed on 5000 64-length sequences).
+
+- Number of **tree collisions** at varying of the number of retained transform coefficients. The considered trees are the ones regenerated after the coefficients removal, and the comparison is carried out between each tree and all the others.
+<img src="https://raw.githubusercontent.com/AlessandroGnutti/DiscreteMirrorTransform/master/Results/Collisions.jpg" width="400">
+
+- Number of **non-changing trees** at varying of the SNR values (the noise is added to one transform coefficient). The comparison is carried out between the tree associated with the original sequence and the one associated with the same sequence but regenerated after the coefficient changing (for each sequence).
+<img src="https://raw.githubusercontent.com/AlessandroGnutti/DiscreteMirrorTransform/master/Results/One-coeff-noise robustness.jpg" width="400">
+
+- Number of **non-changing trees** at varying of the number of retained coefficients for different SNR values (the noise is added to the original sequence). The trees are the ones regenerated after the coefficients removal. The comparison is carried out between the tree associated with the original sequence and the one associated with the noised version of that sequence (for each sequence).
+<img src="https://raw.githubusercontent.com/AlessandroGnutti/DiscreteMirrorTransform/master/Results/Noise robustness.jpg" width="400">
+
 ## About the code
 
 ### Scripts
