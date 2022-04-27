@@ -40,7 +40,6 @@ for ii = 1:length(seismicbase)
     for k = 1:length(perc)
         K = round(perc(k)*numel(x));
         X_nonlinapp = nonLinApp(X_dmt, K);
-%         x_dmt_rec = inverseMirrorTransform2D(X_nonlinapp, n0_table, flag_table);
         mse_dmt(ii,k) = sum((X_dmt-X_nonlinapp).^2)/numel(x);
     end
     

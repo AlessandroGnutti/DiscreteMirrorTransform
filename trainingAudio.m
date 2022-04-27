@@ -2,7 +2,7 @@ clear
 close all
 clc
 
-fld_audio = 'Binario ottimo/Set audio training/';
+fld_audio = 'Set audio training/';
 audiobase = dir(fullfile(fld_audio, '*.wav'));
 
 % 400-sample windows

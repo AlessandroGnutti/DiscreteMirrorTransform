@@ -36,7 +36,6 @@ for ii = 1:length(imagebase)
     for k = 1:length(perc)
         K = round(perc(k)*numel(x));
         X_nonlinapp = nonLinApp(X_dmt, K);
-%         [x_dmt_rec, ~] = inverseMirrorTransform2D(X_nonlinapp, n0_table, flag_table);
         my_mse = sum((X_dmt(:)-X_nonlinapp(:)).^2)/numel(x);
         psnr_dmt(ii,k) = 20*log10(255/sqrt(my_mse));
         
