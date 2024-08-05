@@ -1,8 +1,8 @@
 # The Mirror Transform
 
-## Overview
+## Abstract
 
-The Mirror Transform describes any finite-energy signal through a unique representation consisting of an ordered set of positions and a sparse set of signals. This is obtained by designing an iterative decomposition through a series of mirror operations around those positions. The purpose is to find at any step of the decomposition the location that provides for the maximum decoupling between the even and odd components of the signal with respect to it. By limiting such even and odd components on three separate information bearing support, the algorithm can be iterated at infinity determining a sequence of positions. The per location information determines the optimal energy decoupling strategy at each stage providing remarkable sparsity in the representation. The resulting transformation leads to a 1-to-1 mapping. The approach is easily extended to finite-energy sequences, and in particular for sequences of finite length *N*, at most *N* iterations of the decomposition are required. Thanks to the sparsity of the resulting representation, experimental simulations demonstrate superior approximation capabilities of this proposed non-linear Mirror Transform with potential application in many domains such as approximation and coding.
+This paper explains how to describe any finite-energy signal through a unique representation consisting of an ordered set of positions and a sparse set of signals. This is obtained by designing an iterative decomposition through a series of mirror operations around those positions. The purpose is to find at any step of the decomposition the location that provides for the maximum decoupling between the even and odd components of the signal with respect to it. By limiting such even and odd components on three separate information bearing support, the algorithm can be iterated at infinity determining a sequence of positions. The per location information determines the optimal energy decoupling strategy at each stage providing remarkable sparsity in the representation. The resulting transformation leads to a 1-to-1 mapping. The approach is easily extended to finite-energy sequences, and in particular for sequences of finite length N, at most N iterations of the decomposition are required. Thanks to the sparsity of the resulting representation, experimental simulations demonstrate superior approximation capabilities of this proposed non-linear Mirror Transform with potential application in many domains such as approximation and coding. Its implementation has been made publicly available.
 
 ## Algorithm
 
@@ -74,6 +74,24 @@ To generate the DMT and the inverse DMT of a generic 1-D or 2-D sequence you can
 
 - ```mirrorTransform2D_slow.m```, which receives the sequence as input and returns the entire tree structure as output. ```inverseMirrorTransform2D_slow.m``` computes the inverse transformation.
 - or, alternately, ```mirrorTransform2D_fast.m```, which concatenates the tail to one of the even or odd nodes. It receives the sequence as input and returns the transform coefficients and the optimal symmetry positions (without tree structure) as output. ```inverseMirrorTransform2D_fast.m``` computes the inverse transformation.
+
+## Citation
+
+If you use this code in your work, please consider citing the following paper:
+
+```
+@ARTICLE{9779467,
+  author={Guerrini, Fabrizio and Gnutti, Alessandro and Leonardi, Riccardo},
+  journal={IEEE Transactions on Signal Processing}, 
+  title={The Mirror Transform}, 
+  year={2022},
+  volume={70},
+  number={},
+  pages={2758-2774},
+  keywords={Transforms;Mirrors;Inverse problems;Dictionaries;Signal resolution;Noise reduction;Manifolds;Transforms;non-linear approximation;signal decomposition;sparsity},
+  doi={10.1109/TSP.2022.3176491}}
+```
+
 
 ## Contacts
 
